@@ -1,17 +1,18 @@
 @extends('layouts.app')
+@extends('components.navigation')
 
 @section('title', 'Home')
 
 @section('content')
-<div class="container">
-    @extends('components.navigation')
-  <div class="row">
+<div class="container-fluid p-0">
+<div class="section section1">
+  <div class="row no-gutters">
     <div class="col-md-12">
       <h1>Welcome to My Website</h1>
       <p>Discover the latest news, trends, and information on a wide range of topics.</p>
     </div>
   </div>
-  <div class="row">
+  <div class="row no-gutters">
     <div class="col-md-12">
       <h2>Popular Articles</h2>
       <ul class="list-group">
@@ -21,7 +22,9 @@
       </ul>
     </div>
   </div>
-  <div class="row">
+  </div>
+  <div class="section section2">
+  <div class="row no-gutters">
     <div class="col-md-12">
       <h3>Join Our Community</h3>
       <p>Sign up for our newsletter and never miss an update!</p>
@@ -33,7 +36,9 @@
       </form>
     </div>
   </div>
-  <div class="row">
+</div>
+<div class="section3">
+  <div class="row no-gutters">
     <div class="col-md-12">
       <h4>What Our Users Are Saying</h4>
       <ul class="list-unstyled">
@@ -59,4 +64,23 @@
     </div>
   </div>
 </div>
+</div>
 @endsection
+<style>
+.section{
+    height: 100vh;
+    overflow: auto;
+}
+.section1 {
+  background-color: rgb(193, 189, 189);
+}
+
+.section2 {
+  background-color: rgb(116, 123, 177);
+}
+
+.section3 {
+  background-color: rgb(47, 94, 89);
+}
+
+</style>

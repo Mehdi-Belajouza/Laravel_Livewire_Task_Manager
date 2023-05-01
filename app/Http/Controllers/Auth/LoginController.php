@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -15,7 +16,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '.';
 
     /**
      * Create a new controller instance.
@@ -25,25 +26,6 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-    }
-
-    /**
-     * Handle a login request to the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function login(Request $request)
-    {
-        $this->validateLogin($request);
-
-        if ($this->attemptLogin($request)) {
-            return $this->sendLoginResponse($request);
-        }
-
-        return $this->sendFailedLoginResponse($request);
     }
 
     /**
@@ -57,7 +39,7 @@ class LoginController extends Controller
     protected function validateLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|email',
+            $this->username() => 'required|string',
             'password' => 'required|string',
         ]);
     }
@@ -129,15 +111,5 @@ class LoginController extends Controller
     public function username()
     {
         return 'email';
-    }
-
-    /**
-     * Get the guard to be used during authentication.
-     *
-     * @return \Illuminate\Contracts\Auth\StatefulGuard
-     */
-    protected function guard()
-    {
-        return Auth::guard();
     }
 }

@@ -41,8 +41,8 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 /* main navigation routing */
 Route::get('/', function () {return view('home');});
 Route::get('/home', function () {return view('home');})->name('home');
-Route::get('/contact', function () {return view('contact');})->name('contact');
-Route::get('/about', function () {return view('about');})->name('about');
+Route::get('/search', function () {return view('search');})->name('search');
+Route::get('/blog', function () {return view('blog');})->name('blog');
 Route::get('/login', function () {return view('login');})->name('login');
 
 

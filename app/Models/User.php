@@ -41,4 +41,33 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function create(array $data)
+    {
+        $email = $data['email'];
+        $exists = User::where('email', $email)->exists();
+
+        if ($exists) {
+            return redirect()->back()->withInput()->withErrors(['email' => 'This email address is already in use.']);
+        }
+
+        $user = new User;
+        $user->name = $data['name'];
+        $user->email = $email;
+        $user->password = bcrypt($data['password']);
+        $user->save();
+        return $user;
+    }
+    public static function updateUser(User $user, array $data): User
+    {
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['password']);
+        $user->save();
+        return $user;
+    }
+
+    // public static function update(){
+
+    // }
 }

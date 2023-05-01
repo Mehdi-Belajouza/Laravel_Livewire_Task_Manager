@@ -17,18 +17,11 @@ class UserController extends Controller
     /* storing query to database */
     public function store(Request $request)
     {
-        $email = $request->email;
-        $exists = User::where('email', $email)->exists();
-
-        if ($exists) {
-            return redirect()->back()->withInput()->withErrors(['email' => 'This email address is already in use.']);
-        }
-
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $email;
-        $user->password = bcrypt($request->password);
-        $user->save();
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
         /* redirect to main page */
         return redirect()->route('users.index');
     }
@@ -54,13 +47,11 @@ class UserController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
+        User::updateUser($user, $request->all());
 
         return redirect()->route('users.index');
     }
+
     /* deleting user */
     public function destroy(User $user)
     {
@@ -84,9 +75,11 @@ class UserController extends Controller
     public function search(Request $request)
     {
         $searchTerm = $request->input('search_term');
-        $users = User::where('name', 'LIKE', '%'.$searchTerm.'%')
-                     ->orWhere('email', 'LIKE', '%'.$searchTerm.'%')
-                     ->get();
+        $users = User::where(function($query) use ($searchTerm) {
+                     $query->where('name', 'LIKE', '%'.$searchTerm.'%')
+                           ->orWhere('email', 'LIKE', '%'.$searchTerm.'%');
+                 })
+                 ->get();
 
         return view('livewire.users.index', compact('users'));
     }

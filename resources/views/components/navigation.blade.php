@@ -9,10 +9,10 @@
                 <a class="nav-link " href="{{ route('home') }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('about') }}">About</a>
+                <a class="nav-link" href="{{ route('blog') }}">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                <a class="nav-link" href="{{ route('search') }}">Search</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">Login</a>
