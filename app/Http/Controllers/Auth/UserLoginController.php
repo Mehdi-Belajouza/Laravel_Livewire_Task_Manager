@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-class LoginController extends Controller
+class UserLoginController extends Controller
 {
     use AuthenticatesUsers;
 
@@ -111,5 +111,29 @@ class LoginController extends Controller
     public function username()
     {
         return 'email';
+    }
+
+
+// Google
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback(Request $request)
+    {
+        $user = Socialite::driver('google')->user();
+
+        // Find or create a user with the user's email address.
+        $authUser = User::firstOrCreate([
+            'email' => $user->email,
+        ], [
+            'name' => $user->name,
+            'password' => Hash::make(Str::random(32)),
+        ]);
+
+        Auth::login($authUser, true);
+
+        return redirect('/home');
     }
 }

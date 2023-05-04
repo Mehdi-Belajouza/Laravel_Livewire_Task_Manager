@@ -1,6 +1,5 @@
-
 @extends('layouts.app')
-
+@extends('components.admin-usernav')
 @section('content')
     <h1>Users</h1>
     <table class="table table-striped">
@@ -17,8 +16,8 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
-                        <a href="{{ route('users.edit', $user->id) }}">Edit</a>
-                        <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline">
+                        <a href="{{ route('admin.users.edit', $user->id) }}">Edit</a>
+                        <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
@@ -28,12 +27,13 @@
             @endforeach
         </tbody>
     </table>
-    <a href="{{ route('users.create') }}">Create new user</a>
+
+    <a href="{{ route('admin.users.create') }}">Create new user</a>
     <h1>Searching for user</h1>
-    <form method="GET" action="{{ route('users.search') }}">
+    <form method="GET" action="{{ route('admin.users.search') }}">
         <input type="text" name="search_term" placeholder="Search for users...">
         <button type="submit">Search</button>
     </form>
 
 @endsection
-@extends('components.admin-nav')
+

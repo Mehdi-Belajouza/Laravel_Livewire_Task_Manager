@@ -1,16 +1,15 @@
 @extends('layouts.app')
-@extends('components.navigation')
+@extends('components.main-nav')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
                         <div class="mb-3">
                             <label for="email" class="form-label">{{ __('Email Address') }}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -52,6 +51,7 @@
                             @endif
                         </div>
                     </form>
+                    {{-- <a href="{{ route('login.google') }}">Login with Google</a> --}}
                 </div>
             </div>
         </div>

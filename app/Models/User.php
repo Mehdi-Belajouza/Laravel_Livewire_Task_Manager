@@ -66,8 +66,4 @@ class User extends Authenticatable
         $user->save();
         return $user;
     }
-
-    // public static function update(){
-
-    // }
 }

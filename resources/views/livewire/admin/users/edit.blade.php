@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@extends('components.admin-nav')
-
+@extends('components.admin-usernav')
+@extends('components.admin-sidenav')
 @section('content')
 <h1>Edit User</h1>
-<form method="POST" action="{{ route('users.update', $user->id) }}" class="form">
+<form method="POST" action="{{ route('admin.users.update', $user->id) }}" class="form">
     @csrf
     @method('PUT')
     <div class="form-group">

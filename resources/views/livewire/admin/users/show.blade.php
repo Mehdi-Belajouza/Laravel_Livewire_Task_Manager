@@ -1,5 +1,5 @@
-@extends('components.admin-nav')
-
+@extends('components.admin-usernav')
+@extends('components.admin-sidenav')
 @section('content')
     @if(count($users) > 0)
         <h1>Users</h1>
@@ -13,6 +13,6 @@
         @endif
     @else
         <p>No users found.</p>
-        <a href="{{ route('users.create') }}">Create user</a>
+        <a href="{{ route('admin.users.create') }}">Create user</a>
     @endif
 @endsection
