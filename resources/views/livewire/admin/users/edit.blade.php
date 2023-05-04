@@ -1,6 +1,5 @@
 @extends('layouts.app')
-@extends('components.admin-usernav')
-@extends('components.admin-sidenav')
+@extends('components.admin-nav')
 @section('content')
 <h1>Edit User</h1>
 <form method="POST" action="{{ route('admin.users.update', $user->id) }}" class="form">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@extends('components.admin-usernav')
 @section('content')
+@extends('components.admin-nav')
     <h1>Create User</h1>
     <form method="POST" action="{{ route('admin.users.store') }}" class="form">
         @csrf
@@ -18,6 +18,5 @@
         </div>
         <button type="submit" class="btn btn-success">Create</button>
     </form>
-
 @endsection
 

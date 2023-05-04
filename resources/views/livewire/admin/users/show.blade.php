@@ -1,5 +1,4 @@
-@extends('components.admin-usernav')
-@extends('components.admin-sidenav')
+@extends('components.admin-nav')
 @section('content')
     @if(count($users) > 0)
         <h1>Users</h1>

@@ -6,11 +6,11 @@
         <div class="card shadow">
             <div class="card-body">
                 <div class="text-center">
-                    <img src="{{ asset('../images/admin.png') }}" class="img-fluid mb-4" alt="Logo">
+                    <img src="/images/admin.png" class="img-fluid mb-4" alt="Logo">
                 </div>
                 <h2 class="card-title text-center mb-4">{{ __('Admin Login') }}</h2>
 
-                <form wire:submit.prevent="login" method="HEAD" action="{{ route('admin.admins.admin-login') }}">
+                <form wire:submit.prevent="login" method="POST" action="{{ route('admin.admins.admin-login') }}">
                     @csrf
 
                     <div class="form-group">

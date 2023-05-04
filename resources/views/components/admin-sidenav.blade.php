@@ -1,3 +1,4 @@
+@section('content')
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
@@ -15,7 +16,7 @@
             Admins
           </a>
           <div class="dropdown-menu" aria-labelledby="adminsDropdown">
-            <a class="dropdown-item" href="{{ route('admin.admins.index') }}">All Admins</a>
+            {{-- <a class="dropdown-item" href="{{ route('admin.admins.index') }}">All Admins</a> --}}
             <a class="dropdown-item" href="{{ route('admin.admins.admin-create') }}">Create Admin</a>
           </div>
         </li>
@@ -38,3 +39,4 @@
       </ul>
     </div>
   </nav>
+  @endsection

@@ -14,9 +14,9 @@
         </div>
 
         <div class="col-md-6">
-            <h2>Posts</h2>
-            <p>Manage the site's blog posts</p>
-            {{-- <a href="{{ route('admin.posts.index') }}" class="btn btn-primary">Manage Posts</a> --}}
+            <h2>Tasks</h2>
+            <p>Manage the site's tasks </p>
+            {{-- <a href="{{ route('admin.tasks.index') }}" class="btn btn-primary">Manage Tasks</a> --}}
         </div>
     </div>
 @endsection

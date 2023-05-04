@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@extends('components.admin-usernav')
+@extends('components.admin-nav')
 @section('content')
     <h1>Users</h1>
     <table class="table table-striped">
@@ -34,6 +34,5 @@
         <input type="text" name="search_term" placeholder="Search for users...">
         <button type="submit">Search</button>
     </form>
-
 @endsection
 

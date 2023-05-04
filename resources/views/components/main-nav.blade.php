@@ -38,7 +38,7 @@
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="users">Admin</a>
+                        <a class="nav-link" href="{{ route('admin.admins.admin-login') }}">Admin</a>
                     </li>
                 @endguest
             </ul>
