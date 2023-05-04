@@ -1,39 +1,22 @@
-Application Name
+# Laravel Livewire Task Manager
 
-This is a web application for [insert purpose here]. It is built using [insert programming language(s), framework(s), and/or library(ies)] and uses [insert database and/or third-party services if applicable].
-Prerequisites
+This is a task management web application built with Laravel and Livewire.
 
-To run this application, you will need the following installed on your machine:
+## Requirements
 
-    [insert required software, tools, and/or packages with version numbers]
+To run this project, you must have the following installed:
 
-Installation
+- PHP
+- Composer
 
-    Clone this repository to your local machine.
-    Install the required dependencies using [insert package manager and/or command].
-    [insert additional installation instructions, if applicable]
+## How to Run
 
-Usage
-
-    To run this application first you need to use a mysql database
-    you need to import the data located in  the file data.sql
-    Run the application using [php artisan serve].
-
-Features
-
-    [insert list of key features or functionalities of the application].
-    [insert screenshots or GIFs of the application to highlight each feature, if applicable].
-
-Limitations
-
-    [insert known issues, limitations, or bugs of the application].
-
-Contributions
-
-This application was built by Mehdi Belajouza
-License
-
-This project is licensed under the [insert license type] license. See the LICENSE.md file for details.
-Acknowledgments
-
-    [insert any acknowledgments or credits for external resources or contributors].
+1. Clone the repository to your local machine using the command: `git clone https://github.com/Mehdi-Belajouza/Laravel_Livewire_Task_Manager`.
+2. Run `composer install` to install the required dependencies.
+3. Copy the `.env.example` file to `.env`.
+4. Run `php artisan key:generate` to generate the application key.
+5. Set up the database connection details for `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` in the `.env` file.
+6. Run `php artisan migrate` to run the database migrations.
+7. (Optional) Seed the database with default data by running `php artisan db:seed`.
+8. Run `php artisan serve` to start the development server.
+9. Visit http://localhost:8000 in your browser to view the application.
